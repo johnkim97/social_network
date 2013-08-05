@@ -1,0 +1,29 @@
+<h1>Listing user_groups</h1>
+
+<table class="table content-table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_groups.each do |user_group| %>
+      <tr>
+        <td><%= user_group.user.name %></td>
+        <td><%= user_group.group_id %></td>
+        <td><%= link_to 'Show', user_group, :class => "btn btn-info btn-small" %></td>
+        <td><%= link_to 'Edit', edit_user_group_path(user_group), :class => "btn btn-warning btn-small" %></td>
+        <td><%= link_to 'Destroy', user_group, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-small" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User group', new_user_group_path, :class => "btn btn-default btn-large" %>
